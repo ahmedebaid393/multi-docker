@@ -4,7 +4,7 @@ services:
     - docker
 
 before_install:
-    - docker build -t ahmedebaid393/multi-docker -f ./Dockerfile.dev ./client
+    - docker build -t ahmedebaid393/multi-docker -f ./client/Dockerfile.dev ./client
 
 script:
     - docker run ahmedebaid393/multi-docker npm test -- --watchAll=false
