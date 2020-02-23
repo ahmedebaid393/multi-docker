@@ -16,7 +16,7 @@ after_success:
     - docker build -t ahmedebaid393/server ./server
     - docker build -t ahmedebaid393/worker ./worker
     # Log in to docker CLI
-    - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME"
+    - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
     # Take production builds and push them to my docker hub
     - docker push ahmedebaid393/client
     - docker push ahmedebaid393/nginx
