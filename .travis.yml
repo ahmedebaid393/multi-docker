@@ -22,3 +22,5 @@ after_success:
     - docker push ahmedebaid393/nginx
     - docker push ahmedebaid393/server
     - docker push ahmedebaid393/worker
+    # Log out from docker CLI
+    - docker logout
