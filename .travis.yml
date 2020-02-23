@@ -10,12 +10,13 @@ script:
     - docker run ahmedebaid393/multi-docker npm test -- --watchAll=false
 
 after_success:
+    # Build production images from containers
     - docker build -t ahmedebaid393/client ./client
     - docker build -t ahmedebaid393/nginx ./nginx
     - docker build -t ahmedebaid393/server ./server
     - docker build -t ahmedebaid393/worker ./worker
     # Log in to docker CLI
-    - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --pasword-stdin
+    - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME"
     # Take production builds and push them to my docker hub
     - docker push ahmedebaid393/client
     - docker push ahmedebaid393/nginx
